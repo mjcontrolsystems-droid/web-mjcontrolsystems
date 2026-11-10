@@ -27,6 +27,17 @@
   }, { threshold: .6 });
   document.querySelectorAll('[data-count]').forEach(function (el) { co.observe(el); });
 
+  /* formulario de contacto -> arma el mensaje y lo abre en WhatsApp */
+  var form = document.getElementById('leadForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = (document.getElementById('lf-nombre').value || '').trim();
+    var s = document.getElementById('lf-serv').value;
+    var m = (document.getElementById('lf-msg').value || '').trim();
+    var t = 'Hola MJ Control Systems' + (n ? ', soy ' + n : '') + '. Me interesa ' + s + '.' + (m ? ' ' + m : '');
+    window.open('https://wa.me/50239952448?text=' + encodeURIComponent(t), '_blank');
+  });
+
   if (reduce) return;
 
   /* tarjetas con inclinación 3D + reflejo que sigue el cursor */
