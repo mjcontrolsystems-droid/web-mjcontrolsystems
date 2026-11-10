@@ -43,6 +43,19 @@ h2.sec b{background:linear-gradient(100deg,var(--red),#ff6b5e);-webkit-backgroun
 .btn-red:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(228,18,31,.42)}
 .btn-ghost{background:rgba(255,255,255,.04);color:var(--ink);border:1px solid var(--line)}
 .btn-ghost:hover{transform:translateY(-3px);border-color:var(--blue-l)}
+.btn-wa{background:linear-gradient(145deg,#25d366,#128c3e);color:#fff;box-shadow:0 10px 30px rgba(37,211,102,.32)}
+.btn-wa:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(37,211,102,.45)}
+.btn-wa svg{width:20px;height:20px}
+
+/* botón flotante de WhatsApp */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:70;display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(145deg,#25d366,#128c3e);color:#fff;font-weight:700;padding:14px 20px;border-radius:999px;
+  box-shadow:0 12px 30px rgba(18,140,62,.45);transition:transform .16s,box-shadow .25s}
+.wa-float svg{width:26px;height:26px}
+.wa-float:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 44px rgba(18,140,62,.6)}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid #25d366;animation:wapulse 2.2s ease-out infinite;pointer-events:none}
+@keyframes wapulse{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+@media(max-width:560px){.wa-float span{display:none}.wa-float{padding:16px}}
 
 /* ===== NAV ===== */
 header.nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
