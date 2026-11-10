@@ -162,7 +162,7 @@ section{padding:66px 0;position:relative}
 .cta-band{text-align:center;padding:84px 0}
 .cta-card{max-width:860px;margin:0 auto;border:1px solid var(--line);border-radius:28px;padding:54px 30px;
   background:linear-gradient(160deg,rgba(79,122,209,.14),rgba(228,18,31,.1));position:relative;overflow:hidden}
-.cta-card::after{content:"";position:absolute;inset:0;background:radial-gradient(600px circle at 50% -10%,rgba(88,199,255,.2),transparent 60%)}
+.cta-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px circle at 50% -10%,rgba(88,199,255,.2),transparent 60%)}
 .cta-card>*{position:relative}
 .cta-band h2{font-family:var(--disp);font-weight:700;font-size:clamp(30px,4.8vw,50px);letter-spacing:.5px;text-wrap:balance}
 .cta-band h2 b{background:linear-gradient(100deg,var(--red),#ff6b5e);-webkit-background-clip:text;background-clip:text;color:transparent}
