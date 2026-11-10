@@ -63,16 +63,16 @@
 
   /* ===== red de nodos animada y reactiva al mouse ===== */
   var cv = document.getElementById('nodes'); if (!cv) return;
-  var ctx = cv.getContext('2d'), W, H, pts, DPR = Math.min(devicePixelRatio || 1, 2);
+  var ctx = cv.getContext('2d'), W, H, pts, DPR = Math.min(devicePixelRatio || 1, innerWidth<720?1.5:2);
   var mouse = { x: -9999, y: -9999, on: false };
 
   function size() {
     W = cv.width = innerWidth * DPR; H = cv.height = innerHeight * DPR;
     cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px';
-    var n = Math.min(90, Math.floor(innerWidth / 18)); pts = [];
+    var n = Math.min(innerWidth<720?28:78, Math.floor(innerWidth / (innerWidth<720?18:20))); pts = [];
     for (var i = 0; i < n; i++) pts.push({
       x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - .5) * .3 * DPR, vy: (Math.random() - .5) * .3 * DPR
+      vx: (Math.random() - .5) * (innerWidth<720?0.07:0.14) * DPR, vy: (Math.random() - .5) * (innerWidth<720?0.07:0.14) * DPR
     });
   }
   size(); addEventListener('resize', size);
@@ -97,7 +97,7 @@
       p.x += p.vx; p.y += p.vy;
       // fricción + límite de velocidad
       p.vx *= .992; p.vy *= .992;
-      var sp = p.vx * p.vx + p.vy * p.vy, mx = .55 * DPR * .55 * DPR;
+      var sp = p.vx * p.vx + p.vy * p.vy, mx = (innerWidth<720?0.1:0.21)*DPR*(innerWidth<720?0.1:0.21)*DPR;
       if (sp > mx) { var s = Math.sqrt(mx / sp); p.vx *= s; p.vy *= s; }
       if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1;
     }
