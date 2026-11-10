@@ -182,16 +182,23 @@ section{padding:66px 0;position:relative}
 .why p{color:var(--muted);font-size:14.5px;transform:translateZ(12px)}
 
 /* ===== formulario de contacto ===== */
-.lead-form{max-width:520px;margin:26px auto 0;display:flex;flex-direction:column;gap:12px;text-align:left}
+.lead-form{max-width:540px;margin:28px auto 0;display:flex;flex-direction:column;gap:14px;text-align:left}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .lead-form input,.lead-form select,.lead-form textarea{
-  width:100%;background:rgba(10,18,34,.6);border:1px solid var(--line);border-radius:12px;
-  color:var(--ink);font-family:var(--body);font-size:15.5px;padding:13px 15px;outline:none;transition:border-color .2s}
-.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--blue-l)}
-.lead-form select{appearance:none;cursor:pointer}
-.lead-form textarea{resize:vertical;min-height:84px}
-.lead-form .btn-wa{justify-content:center;margin-top:2px}
-.cta-or{display:flex;align-items:center;gap:14px;max-width:520px;margin:20px auto 16px;color:var(--muted2);font-size:14px}
+  width:100%;background:rgba(10,18,34,.7);border:1px solid var(--line);border-radius:14px;
+  color:var(--ink);font-family:var(--body);font-size:15.5px;padding:15px 16px;outline:none;
+  transition:border-color .2s,box-shadow .2s}
+.lead-form input::placeholder,.lead-form textarea::placeholder{color:var(--muted2)}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--blue-l);box-shadow:0 0 0 3px rgba(79,122,209,.22)}
+.lead-form select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238595b8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center;padding-right:42px}
+.lead-form select option{background:#0d1c38;color:var(--ink)}
+.lead-form textarea{resize:vertical;min-height:92px}
+.lead-form .btn-wa{justify-content:center;margin-top:2px;padding:15px 22px;font-size:16px}
+.cta-or{display:flex;align-items:center;gap:14px;max-width:540px;margin:22px auto 16px;color:var(--muted2);font-size:14px}
 .cta-or::before,.cta-or::after{content:"";height:1px;flex:1;background:var(--line)}
+@media(max-width:560px){.lf-row{grid-template-columns:1fr}}
 
 @media(max-width:920px){.why-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.why-grid{grid-template-columns:1fr}}
